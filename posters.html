@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>She Builds Uganda — Campaign Poster</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,900;1,700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px 60px;
+      font-family: 'Inter', sans-serif;
+      gap: 60px;
+    }
+
+    h1.page-title {
+      color: #fff;
+      font-size: 18px;
+      opacity: 0.4;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+
+    /* ==========================================
+       POSTER 1 — LAUNCH ANNOUNCEMENT
+       Inspired by: Image 5 (warm bold editorial)
+       + Image 6 (complementary color split)
+    ========================================== */
+    .poster {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+
+    /* === POSTER 1 === */
+    .p1 {
+      width: 1080px;
+      height: 1080px;
+      background: #003F3A;
+    }
+
+    .p1-bg-circle {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(0,120,112,0.5) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      border-radius: 50%;
+    }
+
+    .p1-bg-dots {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,199,0,0.12) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .p1-yellow-bar {
+      position: absolute;
+      left: 0; top: 0;
+      width: 14px;
+      height: 100%;
+      background: #FFC700;
+    }
+
+    .p1-content {
+      position: absolute;
+      inset: 0;
+      padding: 70px 80px 60px 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .p1-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .p1-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,199,0,0.15);
+      border: 1.5px solid rgba(255,199,0,0.5);
+      border-radius: 100px;
+      padding: 8px 20px;
+      color: #FFC700;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .p1-badge .dot {
+      width: 8px; height: 8px;
+      background: #FFC700;
+      border-radius: 50%;
+    }
+
+    .p1-logo {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 1px;
+      opacity: 0.7;
+    }
+    .p1-logo span { color: #FFC700; }
+
+    .p1-mid {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 0;
+    }
+
+    .p1-eyebrow {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #FFC700;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .p1-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 88px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 0.95;
+      letter-spacing: -2px;
+    }
+    .p1-headline .line2 {
+      color: #FFC700;
+      font-style: italic;
+      display: block;
+      margin-left: 8px;
+    }
+    .p1-headline .line3 {
+      display: block;
+      margin-left: 4px;
+    }
+
+    .p1-sub {
+      font-size: 22px;
+      color: rgba(255,255,255,0.75);
+      margin-top: 28px;
+      font-weight: 400;
+      line-height: 1.5;
+      max-width: 600px;
+    }
+    .p1-sub strong { color: #fff; font-weight: 700; }
+
+    .p1-features {
+      display: flex;
+      gap: 32px;
+      margin-top: 36px;
+    }
+    .p1-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .p1-feature-icon {
+      width: 36px; height: 36px;
+      background: #FFC700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .p1-feature-text { font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 600; }
+
+    .p1-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .p1-cta-block { }
+    .p1-cta-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 10px;
+    }
+    .p1-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FFC700;
+      color: #000;
+      font-size: 17px;
+      font-weight: 800;
+      padding: 16px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    .p1-big-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 200px;
+      font-weight: 900;
+      color: rgba(255,199,0,0.07);
+      line-height: 1;
+      position: absolute;
+      bottom: -20px;
+      right: 60px;
+      pointer-events: none;
+      letter-spacing: -10px;
+    }
+
+    .p1-tag {
+      font-size: 16px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .p1-slots {
+      text-align: right;
+    }
+    .p1-slots .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 900;
+      color: #FFC700;
+      line-height: 1;
+    }
+    .p1-slots .lbl {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* ==========================================
+       POSTER 2 — SOCIAL MEDIA SQUARE
+       Inspired by: Image 8 (white space + big number)
+       + Image 6 (circle halo element)
+    ========================================== */
+    .p2 {
+      width: 1080px;
+      height: 1080px;
+      background: #fff;
+      position: relative;
+    }
+
+    .p2-left {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 520px;
+      background: #003F3A;
+      display: flex;
+      flex-direction: column;
+      padding: 70px 60px;
+      justify-content: space-between;
+    }
+
+    .p2-right {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 560px;
+      display: flex;
+      flex-direction: column;
+      padding: 70px 60px;
+      justify-content: space-between;
+    }
+
+    .p2-big-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 96px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 0.9;
+      letter-spacing: -3px;
+    }
+    .p2-big-headline span { color: #FFC700; font-style: italic; }
+
+    .p2-desc {
+      font-size: 18px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .p2-bottom-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .p2-hashtag {
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFC700;
+      letter-spacing: 1px;
+    }
+    .p2-brand {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .p2-circle-bg {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      background: #FFC700;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -58%);
+      opacity: 0.12;
+    }
+
+    .p2-big-50 {
+      font-family: 'Playfair Display', serif;
+      font-size: 280px;
+      font-weight: 900;
+      color: rgba(0,63,58,0.07);
+      line-height: 1;
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      letter-spacing: -12px;
+    }
+
+    .p2-what-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #007870;
+      margin-bottom: 16px;
+    }
+
+    .p2-offers {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .p2-offer {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .p2-offer-icon {
+      width: 42px; height: 42px;
+      background: #003F3A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .p2-offer-text h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 2px;
+    }
+    .p2-offer-text p {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .p2-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #003F3A;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 16px 32px;
+      border-radius: 100px;
+      width: fit-content;
+      margin-top: 32px;
+    }
+
+    .p2-urgency {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,199,0,0.1);
+      border: 1.5px solid rgba(255,199,0,0.4);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-top: 20px;
+    }
+    .p2-urgency-icon { font-size: 22px; }
+    .p2-urgency-text { font-size: 14px; font-weight: 700; color: #8B6800; }
+
+    .p2-divider {
+      width: 0;
+      height: 100%;
+      border-left: 2px dashed rgba(0,63,58,0.1);
+      position: absolute;
+      left: 520px;
+      top: 0;
+    }
+
+    /* ==========================================
+       POSTER 3 — STORY FORMAT (9:16)
+       Inspired by: Image 1 (diagonal elements)
+       + Image 4 (bold purple + neon feel)
+    ========================================== */
+    .p3 {
+      width: 608px;
+      height: 1080px;
+      background: #003F3A;
+      position: relative;
+    }
+
+    .p3-diagonal {
+      position: absolute;
+      width: 180px;
+      height: 140%;
+      background: #FFC700;
+      top: -20%;
+      left: -30px;
+      transform: rotate(-8deg);
+      transform-origin: top left;
+      z-index: 0;
+    }
+
+    .p3-diagonal-2 {
+      position: absolute;
+      width: 60px;
+      height: 140%;
+      background: rgba(255,199,0,0.15);
+      top: -20%;
+      left: 160px;
+      transform: rotate(-8deg);
+      transform-origin: top left;
+      z-index: 0;
+    }
+
+    .p3-content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      padding: 60px 48px 50px 200px;
+      justify-content: space-between;
+    }
+
+    .p3-top { }
+    .p3-logo-text {
+      font-size: 13px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .p3-logo-text span { color: #FFC700; }
+
+    .p3-mid { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+    .p3-tag-pill {
+      display: inline-block;
+      background: rgba(255,199,0,0.15);
+      border: 1.5px solid rgba(255,199,0,0.4);
+      color: #FFC700;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .p3-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 58px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -1px;
+    }
+    .p3-headline span { color: #FFC700; font-style: italic; }
+
+    .p3-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .p3-list {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .p3-list-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+    }
+    .p3-check {
+      width: 22px; height: 22px;
+      background: #FFC700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #000;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .p3-bottom { }
+    .p3-cta {
+      background: #FFC700;
+      color: #000;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 15px 28px;
+      border-radius: 100px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .p3-hashtag {
+      font-size: 16px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1px;
+    }
+
+    .p3-vertical-text {
+      position: absolute;
+      left: 68px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #000;
+      z-index: 3;
+      white-space: nowrap;
+    }
+
+    .p3-slots-badge {
+      position: absolute;
+      top: 60px;
+      right: 48px;
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 16px 20px;
+      text-align: center;
+      z-index: 3;
+    }
+    .p3-slots-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: #FFC700;
+      line-height: 1;
+    }
+    .p3-slots-lbl {
+      font-size: 10px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+
+    /* ==========================================
+       POSTER 4 — DEADLINE/URGENCY CARD
+       Inspired by: Image 2 (warm terracotta + layered)
+    ========================================== */
+    .p4 {
+      width: 1080px;
+      height: 566px;
+      background: linear-gradient(135deg, #FFC700 0%, #ffb300 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .p4-bg-text {
+      position: absolute;
+      font-family: 'Playfair Display', serif;
+      font-size: 300px;
+      font-weight: 900;
+      color: rgba(0,0,0,0.06);
+      top: -40px;
+      left: -20px;
+      line-height: 1;
+      letter-spacing: -10px;
+      pointer-events: none;
+    }
+
+    .p4-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      padding: 60px 80px;
+      gap: 60px;
+    }
+
+    .p4-left { flex: 1; }
+    .p4-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.5);
+      margin-bottom: 12px;
+    }
+    .p4-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 68px;
+      font-weight: 900;
+      color: #000;
+      line-height: 0.95;
+      letter-spacing: -2px;
+    }
+    .p4-headline .underline {
+      text-decoration: underline;
+      text-decoration-color: #003F3A;
+      text-decoration-thickness: 4px;
+    }
+    .p4-sub {
+      font-size: 20px;
+      color: rgba(0,0,0,0.65);
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+
+    .p4-right {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-end;
+    }
+
+    .p4-big-pill {
+      background: #003F3A;
+      color: #FFC700;
+      font-size: 52px;
+      font-weight: 900;
+      padding: 20px 48px;
+      border-radius: 100px;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
+
+    .p4-cta {
+      background: #000;
+      color: #FFC700;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 16px 36px;
+      border-radius: 100px;
+      letter-spacing: 0.5px;
+    }
+
+    .p4-hashtag {
+      font-size: 15px;
+      font-weight: 800;
+      color: rgba(0,0,0,0.4);
+      letter-spacing: 1px;
+    }
+
+    /* ==========================================
+       LABELS
+    ========================================== */
+    .poster-label {
+      color: rgba(255,255,255,0.35);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: -40px;
+      margin-top: 0;
+      align-self: flex-start;
+    }
+
+    @media (max-width: 1140px) {
+      .p1, .p2, .p4 { transform: scale(0.85); transform-origin: top center; margin-bottom: -100px; }
+      .p3 { transform: scale(0.85); transform-origin: top center; margin-bottom: -100px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="page-title">#SheBuildsUG — Campaign Posters</h1>
+
+  <!-- ========== POSTER 1 — MAIN LAUNCH ========== -->
+  <p class="poster-label">Poster 1 — Main Launch Announcement (1080×1080)</p>
+  <div class="poster p1">
+    <div class="p1-bg-circle"></div>
+    <div class="p1-bg-dots"></div>
+    <div class="p1-yellow-bar"></div>
+
+    <!-- Big faded 50 in background -->
+    <div class="p1-big-num">50</div>
+
+    <div class="p1-content">
+      <div class="p1-top">
+        <div class="p1-badge">
+          <span class="dot"></span>
+          Applications Now Open
+        </div>
+        <div class="p1-logo">Embiro<span>Tech</span></div>
+      </div>
+
+      <div class="p1-mid">
+        <div class="p1-eyebrow">She Builds Uganda Campaign · 2026</div>
+        <div class="p1-headline">
+          We're<br/>
+          <span class="line2">Building</span>
+          <span class="line3">Your Digital<br/>Future.</span>
+        </div>
+        <p class="p1-sub">
+          <strong>50 women-owned businesses</strong> in Uganda will receive a free professional website or MVP app — built by Embiro Technologies. No cost. No catch.
+        </p>
+        <div class="p1-features">
+          <div class="p1-feature">
+            <div class="p1-feature-icon">🌐</div>
+            <span class="p1-feature-text">Free Website</span>
+          </div>
+          <div class="p1-feature">
+            <div class="p1-feature-icon">📲</div>
+            <span class="p1-feature-text">Free MVP App</span>
+          </div>
+          <div class="p1-feature">
+            <div class="p1-feature-icon">🚀</div>
+            <span class="p1-feature-text">5–7 Days Delivery</span>
+          </div>
+          <div class="p1-feature">
+            <div class="p1-feature-icon">🇺🇬</div>
+            <span class="p1-feature-text">Uganda Only</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p1-bottom">
+        <div class="p1-cta-block">
+          <div class="p1-cta-label">Apply Now — Limited Spots</div>
+          <div class="p1-cta-btn">
+            Apply Today → embiro.com
+          </div>
+          <div style="margin-top: 14px;">
+            <span class="p1-tag">#SheBuildsUG &nbsp;&nbsp; #EmbiroEmpowers</span>
+          </div>
+        </div>
+        <div class="p1-slots">
+          <div class="num">50</div>
+          <div class="lbl">Spots Available<br/>This Month</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== POSTER 2 — SPLIT LAYOUT ========== -->
+  <p class="poster-label">Poster 2 — What We Offer (1080×1080 Split)</p>
+  <div class="poster p2">
+    <div class="p2-big-50">50</div>
+    <div class="p2-divider"></div>
+
+    <!-- LEFT — Dark teal -->
+    <div class="p2-left">
+      <div>
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,199,0,0.7); margin-bottom: 20px;">Embiro Technologies Presents</div>
+        <div class="p2-big-headline">She<br/><span>Builds</span><br/>Uganda.</div>
+        <p class="p2-desc" style="margin-top: 28px;">50 women-owned businesses. One month. Free digital solutions — built and delivered by our team.</p>
+      </div>
+      <div class="p2-bottom-left">
+        <div class="p2-hashtag">#SheBuildsUG</div>
+        <div class="p2-brand">embiro.com · Uganda</div>
+      </div>
+    </div>
+
+    <!-- RIGHT — White -->
+    <div class="p2-right">
+      <div>
+        <div class="p2-what-label">What You Get — 100% Free</div>
+
+        <div class="p2-offers">
+          <div class="p2-offer">
+            <div class="p2-offer-icon">🌐</div>
+            <div class="p2-offer-text">
+              <h3>Professional Website</h3>
+              <p>5 pages. Mobile-first. Custom branded. Live in 5–7 days. Worth 1.3M+ UGX.</p>
+            </div>
+          </div>
+          <div class="p2-offer">
+            <div class="p2-offer-icon">📲</div>
+            <div class="p2-offer-text">
+              <h3>MVP Mobile App</h3>
+              <p>Your core feature. Cross-platform iOS & Android. Portfolio-quality build.</p>
+            </div>
+          </div>
+          <div class="p2-offer">
+            <div class="p2-offer-icon">🎓</div>
+            <div class="p2-offer-text">
+              <h3>Onboarding Support</h3>
+              <p>Personal developer call + 30-day after-launch support included.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p2-urgency">
+          <span class="p2-urgency-icon">⚡</span>
+          <span class="p2-urgency-text">Only 50 spots available this month. Applications close soon.</span>
+        </div>
+      </div>
+
+      <div class="p2-cta">
+        Apply Now → embiro.com
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== POSTER 3 — STORY FORMAT ========== -->
+  <p class="poster-label">Poster 3 — Instagram/WhatsApp Story (608×1080)</p>
+  <div class="poster p3">
+    <div class="p3-diagonal"></div>
+    <div class="p3-diagonal-2"></div>
+
+    <!-- Vertical text on yellow bar -->
+    <div class="p3-vertical-text">SHE BUILDS UGANDA · 2026</div>
+
+    <!-- Slots badge top right -->
+    <div class="p3-slots-badge">
+      <div class="p3-slots-num">50</div>
+      <div class="p3-slots-lbl">Free Spots</div>
+    </div>
+
+    <div class="p3-content">
+      <div class="p3-top">
+        <div class="p3-logo-text">Embiro<span>Tech</span></div>
+      </div>
+
+      <div class="p3-mid">
+        <div class="p3-tag-pill">🇺🇬 Uganda · This Month Only</div>
+        <div class="p3-headline">
+          Your Business<br/>
+          Deserves a<br/>
+          <span>Digital Home.</span>
+        </div>
+        <p class="p3-sub">We're giving 50 women-owned businesses in Uganda a free professional website or app.</p>
+
+        <div class="p3-list">
+          <div class="p3-list-item">
+            <div class="p3-check">✓</div>
+            Free professional website (5 pages)
+          </div>
+          <div class="p3-list-item">
+            <div class="p3-check">✓</div>
+            Free MVP app development
+          </div>
+          <div class="p3-list-item">
+            <div class="p3-check">✓</div>
+            Built & live in 5–7 days
+          </div>
+          <div class="p3-list-item">
+            <div class="p3-check">✓</div>
+            Zero cost. Zero catch.
+          </div>
+        </div>
+      </div>
+
+      <div class="p3-bottom">
+        <div class="p3-cta">Apply Now → embiro.com</div>
+        <div class="p3-hashtag">#SheBuildsUG #EmbiroEmpowers</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== POSTER 4 — URGENCY BANNER ========== -->
+  <p class="poster-label">Poster 4 — Urgency / Deadline Banner (1080×566)</p>
+  <div class="poster p4">
+    <div class="p4-bg-text">50</div>
+
+    <div class="p4-content">
+      <div class="p4-left">
+        <div class="p4-eyebrow">⚡ Limited Time · She Builds Uganda</div>
+        <div class="p4-headline">
+          Don't miss<br/>
+          <span class="underline">your spot.</span>
+        </div>
+        <p class="p4-sub">50 women-owned businesses get a <strong>free website or app</strong> built by Embiro Technologies. Applications close this month.</p>
+      </div>
+
+      <div class="p4-right">
+        <div class="p4-big-pill">50 Spots Left</div>
+        <div class="p4-cta">Apply Now → embiro.com</div>
+        <div class="p4-hashtag">#SheBuildsUG</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
