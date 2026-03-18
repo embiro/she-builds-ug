@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>She Builds Uganda — Execution Playbook</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .slide {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 80px;
+      position: relative;
+      border-bottom: 2px solid #111;
+    }
+
+    /* THEMES */
+    .slide-cover    { background: linear-gradient(135deg, #0d1f1e 0%, #003F3A 60%, #007870 100%); text-align: center; }
+    .slide-dark     { background: #0d1117; }
+    .slide-teal     { background: linear-gradient(135deg, #003F3A, #004d48); }
+    .slide-yellow   { background: linear-gradient(135deg, #FFC700, #ffb300); color: #000; }
+    .slide-white    { background: #f5f5f0; color: #000; }
+    .slide-mid      { background: #111827; }
+    .slide-black    { background: #080808; }
+
+    /* TYPOGRAPHY */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 14px;
+    }
+    .slide-yellow .eyebrow, .slide-white .eyebrow { color: #003F3A; opacity: 0.6; }
+
+    h1 { font-size: clamp(38px, 5.5vw, 72px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; }
+    h2 { font-size: clamp(26px, 3.5vw, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; }
+    h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    h4 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; opacity: 0.6; }
+    p  { font-size: 16px; line-height: 1.7; opacity: 0.82; }
+    .slide-yellow p, .slide-white p { opacity: 0.8; }
+
+    .accent       { color: #FFC700; }
+    .accent-teal  { color: #4dd9ce; }
+    .accent-red   { color: #ff6b6b; }
+
+    /* COVER */
+    .cover-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,199,0,0.12); border: 1px solid rgba(255,199,0,0.35);
+      border-radius: 100px; padding: 7px 18px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1px; color: #FFC700;
+      margin-bottom: 28px;
+    }
+    .cover-badge .dot { width: 7px; height: 7px; background: #FFC700; border-radius: 50%; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    .cover-meta {
+      display: flex; gap: 48px; margin-top: 56px;
+      padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.12);
+      flex-wrap: wrap; justify-content: center;
+    }
+    .cover-meta-item .big   { font-size: 34px; font-weight: 800; color: #FFC700; }
+    .cover-meta-item .lbl   { font-size: 11px; opacity: 0.5; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+
+    /* LAYOUT */
+    .content-wide     { width: 100%; max-width: 1100px; }
+    .content-centered { text-align: center; max-width: 820px; }
+    .two-col   { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; width: 100%; max-width: 1100px; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; width: 100%; max-width: 1100px; }
+    .four-col  { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; width: 100%; max-width: 1100px; }
+
+    /* CARDS */
+    .card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px; padding: 28px;
+    }
+    .card-yellow {
+      background: rgba(255,199,0,0.07); border: 1px solid rgba(255,199,0,0.28);
+      border-radius: 14px; padding: 28px;
+    }
+    .card-teal {
+      background: rgba(0,120,112,0.12); border: 1px solid rgba(0,120,112,0.35);
+      border-radius: 14px; padding: 28px;
+    }
+    .card-red {
+      background: rgba(255,107,107,0.07); border: 1px solid rgba(255,107,107,0.25);
+      border-radius: 14px; padding: 28px;
+    }
+    .slide-white .card {
+      background: #fff; border: 1px solid #e5e7eb; box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .slide-yellow .card {
+      background: rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.14);
+    }
+
+    .card-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+    .card-num  { font-size: 44px; font-weight: 900; color: #FFC700; line-height: 1; margin-bottom: 6px; }
+
+    /* DIVIDER */
+    .divider      { width: 56px; height: 4px; background: #FFC700; border-radius: 2px; margin: 18px auto; }
+    .divider-left { width: 56px; height: 4px; background: #FFC700; border-radius: 2px; margin: 18px 0 32px; }
+
+    /* HIGHLIGHT */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(255,199,0,0.08), rgba(0,120,112,0.08));
+      border: 1px solid rgba(255,199,0,0.25); border-radius: 14px;
+      padding: 32px; margin-top: 28px; width: 100%; max-width: 1100px;
+    }
+    .highlight-box p { font-size: 19px; font-weight: 500; line-height: 1.5; opacity: 1; }
+    .highlight-box span { color: #FFC700; font-weight: 700; }
+
+    /* CHECKLIST */
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 11px; font-size: 15px; line-height: 1.5;
+    }
+    .ci { color: #FFC700; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .ci-teal { color: #4dd9ce; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .ci-red  { color: #ff6b6b; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .slide-yellow .ci { color: #003F3A; }
+    .slide-white .ci  { color: #007870; }
+
+    /* TABLE */
+    table { width: 100%; border-collapse: collapse; max-width: 1100px; }
+    th { background: rgba(255,199,0,0.12); padding: 10px 16px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #FFC700; }
+    td { padding: 13px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    .slide-white th { background: #f0faf8; color: #007870; }
+    .slide-white td { border-bottom: 1px solid #e5e7eb; color: #111; }
+
+    /* TAG */
+    .tag {
+      display: inline-block;
+      background: rgba(0,120,112,0.18); border: 1px solid rgba(0,120,112,0.35);
+      color: #4dd9ce; font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 100px; margin: 3px 2px;
+    }
+    .tag-y {
+      display: inline-block;
+      background: rgba(255,199,0,0.15); border: 1px solid rgba(255,199,0,0.35);
+      color: #FFC700; font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 100px; margin: 3px 2px;
+    }
+
+    /* ROLE BADGE */
+    .role {
+      display: inline-block; padding: 3px 12px; border-radius: 100px;
+      font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    }
+    .role-elly   { background: rgba(255,199,0,0.15); color: #FFC700; border: 1px solid rgba(255,199,0,0.3); }
+    .role-fahad  { background: rgba(77,217,206,0.12); color: #4dd9ce; border: 1px solid rgba(77,217,206,0.3); }
+    .role-queen  { background: rgba(200,150,255,0.12); color: #c89fff; border: 1px solid rgba(200,150,255,0.3); }
+    .role-collins{ background: rgba(255,107,107,0.1); color: #ff9f9f; border: 1px solid rgba(255,107,107,0.25); }
+    .role-devs   { background: rgba(100,200,100,0.1); color: #90ee90; border: 1px solid rgba(100,200,100,0.25); }
+
+    /* DAY PLAN */
+    .day-block { margin-bottom: 20px; }
+    .day-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 12px;
+    }
+    .day-pill {
+      background: #FFC700; color: #000; font-size: 11px; font-weight: 800;
+      padding: 4px 14px; border-radius: 100px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap;
+    }
+    .day-title { font-size: 16px; font-weight: 700; }
+
+    /* SCRIPT BOX */
+    .script-box {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+      border-left: 3px solid #FFC700; border-radius: 0 10px 10px 0;
+      padding: 18px 22px; font-size: 14px; line-height: 1.7; font-style: italic;
+      margin: 12px 0;
+    }
+    .script-box .from { font-style: normal; font-weight: 700; color: #FFC700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+
+    /* PRESENTER NOTE */
+    .pnote {
+      background: rgba(255,199,0,0.05); border-left: 3px solid #FFC700;
+      padding: 12px 20px; border-radius: 0 8px 8px 0;
+      margin-top: 20px; font-size: 13px; opacity: 0.7; font-style: italic;
+      width: 100%; max-width: 1100px;
+    }
+
+    /* PROGRESS BAR */
+    .progress-bar { background: rgba(255,255,255,0.08); border-radius: 100px; height: 8px; margin-top: 8px; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, #FFC700, #ffb300); }
+
+    /* STAT GRID */
+    .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; width: 100%; max-width: 1100px; }
+    .stat-box { text-align: center; padding: 28px 16px; border-radius: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+    .stat-big  { font-size: 46px; font-weight: 900; color: #FFC700; line-height: 1; }
+    .stat-lbl  { font-size: 12px; opacity: 0.55; margin-top: 6px; }
+
+    /* FLOW */
+    .flow { display: flex; flex-direction: column; gap: 0; width: 100%; max-width: 1100px; }
+    .flow-row {
+      display: grid; grid-template-columns: 140px 1fr;
+      gap: 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .flow-row:last-child { border-bottom: none; }
+    .flow-time {
+      padding: 16px 20px; font-size: 12px; font-weight: 700; color: #FFC700;
+      text-transform: uppercase; letter-spacing: 1px; border-right: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center;
+    }
+    .flow-content { padding: 16px 20px; }
+    .flow-content h3 { font-size: 15px; margin-bottom: 4px; }
+    .flow-content p  { font-size: 13px; opacity: 0.6; }
+
+    /* SLIDE NUM */
+    .slide-num { position: absolute; bottom: 20px; right: 36px; font-size: 11px; opacity: 0.2; font-weight: 600; }
+
+    /* BIG QUOTE */
+    .big-quote { font-size: clamp(22px, 3vw, 38px); font-weight: 700; line-height: 1.3; text-align: center; max-width: 860px; }
+    .big-quote span { color: #FFC700; }
+
+    @media (max-width: 768px) {
+      .slide { padding: 36px 20px; }
+      .two-col, .three-col, .four-col, .stat-grid { grid-template-columns: 1fr; }
+      .flow-row { grid-template-columns: 1fr; }
+      .flow-time { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================
+     SLIDE 1 — COVER
+================================= -->
+<section class="slide slide-cover">
+  <div class="cover-badge">
+    <span class="dot"></span>
+    #SheBuildsUG · Execution Playbook
+  </div>
+  <h1>How We<br/><span class="accent">Execute</span> This</h1>
+  <div class="divider"></div>
+  <p style="font-size: 20px; opacity: 0.7; max-width: 600px; margin-top: 8px;">The operational plan behind the She Builds Uganda campaign — who does what, when, and how.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="big">4</div><div class="lbl">Weeks</div></div>
+    <div class="cover-meta-item"><div class="big">5</div><div class="lbl">Team Members</div></div>
+    <div class="cover-meta-item"><div class="big">50+</div><div class="lbl">Target Signups</div></div>
+    <div class="cover-meta-item"><div class="big">0</div><div class="lbl">Budget Needed</div></div>
+  </div>
+  <div class="slide-num">01 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 2 — PRE-LAUNCH CHECKLIST
+================================= -->
+<section class="slide slide-dark">
+  <div class="content-wide">
+    <div class="eyebrow">Before Day 1</div>
+    <h2>Pre-Launch Checklist</h2>
+    <div class="divider-left"></div>
+    <p style="margin-bottom: 32px;">Everything that must be <span class="accent">ready before</span> the campaign goes live. No exceptions.</p>
+    <div class="two-col">
+      <div>
+        <h4 style="color: #FFC700; margin-bottom: 16px;">✅ Sales & Outreach (Elly)</h4>
+        <ul class="checklist">
+          <li><span class="ci">□</span> Application form created (Google Forms)</li>
+          <li><span class="ci">□</span> Campaign one-pager designed (Canva)</li>
+          <li><span class="ci">□</span> List of 10+ women's groups to visit compiled</li>
+          <li><span class="ci">□</span> DM outreach template written (WhatsApp + Instagram)</li>
+          <li><span class="ci">□</span> Campaign launch post drafted and approved</li>
+          <li><span class="ci">□</span> WhatsApp broadcast list set up</li>
+          <li><span class="ci">□</span> #SheBuildsUG hashtag tested across platforms</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: #4dd9ce; margin-bottom: 16px;">✅ Tech & Delivery (Fahad + Devs)</h4>
+        <ul class="checklist">
+          <li><span class="ci-teal">□</span> Project tracker set up (Notion / Trello / Google Sheet)</li>
+          <li><span class="ci-teal">□</span> Website delivery template ready (reusable base)</li>
+          <li><span class="ci-teal">□</span> Client content brief template written</li>
+          <li><span class="ci-teal">□</span> Max parallel project capacity agreed (e.g. 5 at a time)</li>
+          <li><span class="ci-teal">□</span> Hosting/domain plan for selected businesses confirmed</li>
+          <li><span class="ci-teal">□</span> Onboarding call agenda ready</li>
+        </ul>
+      </div>
+    </div>
+    <div class="two-col" style="margin-top: 24px;">
+      <div>
+        <h4 style="color: #c89fff; margin-bottom: 16px;">✅ Admin & Comms (Queen)</h4>
+        <ul class="checklist">
+          <li><span class="ci" style="color: #c89fff;">□</span> Response templates for application acknowledgements</li>
+          <li><span class="ci" style="color: #c89fff;">□</span> Selection notification message drafted</li>
+          <li><span class="ci" style="color: #c89fff;">□</span> Rejection / waitlist message drafted</li>
+          <li><span class="ci" style="color: #c89fff;">□</span> Tracking spreadsheet for all applicants ready</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: #ff9f9f; margin-bottom: 16px;">✅ Strategy & Go/No-Go (Collins)</h4>
+        <ul class="checklist">
+          <li><span class="ci" style="color: #ff9f9f;">□</span> NextMedia go-live date confirmed</li>
+          <li><span class="ci" style="color: #ff9f9f;">□</span> Max project capacity approved</li>
+          <li><span class="ci" style="color: #ff9f9f;">□</span> Developer terms (volunteer / intern / paid) agreed</li>
+          <li><span class="ci" style="color: #ff9f9f;">□</span> Campaign officially green-lit ✅</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">02 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 3 — ROLES & OWNERSHIP
+================================= -->
+<section class="slide slide-teal">
+  <div class="content-wide">
+    <div class="eyebrow">Team Roles</div>
+    <h2>Who Owns What</h2>
+    <div class="divider-left"></div>
+    <table style="margin-top: 8px;">
+      <thead>
+        <tr>
+          <th>Person</th>
+          <th>Role in Campaign</th>
+          <th>Daily Commitment</th>
+          <th>Reports To</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="role role-elly">Elly</span></td>
+          <td><strong>Campaign Lead</strong> — outreach, DMs, group visits, social posting, application management, NextMedia liaison</td>
+          <td>2–3 hours/day</td>
+          <td>Collins</td>
+        </tr>
+        <tr>
+          <td><span class="role role-queen">Queen</span></td>
+          <td><strong>Applications Manager</strong> — tracks all submissions, sends acknowledgements, manages selection comms, maintains master sheet</td>
+          <td>1–1.5 hours/day</td>
+          <td>Elly / Collins</td>
+        </tr>
+        <tr>
+          <td><span class="role role-fahad">Fahad</span></td>
+          <td><strong>Lead Developer</strong> — sets build standards, assigns incoming projects to devs, handles complex builds, quality review before launch</td>
+          <td>Ongoing (per project)</td>
+          <td>Collins</td>
+        </tr>
+        <tr>
+          <td><span class="role role-devs">New Devs</span></td>
+          <td><strong>Build Team</strong> — execute assigned projects following Fahad's template and brief. Portfolio cases.</td>
+          <td>Per project assignment</td>
+          <td>Fahad</td>
+        </tr>
+        <tr>
+          <td><span class="role role-collins">Collins</span></td>
+          <td><strong>Executive Sponsor</strong> — final approvals, NextMedia relationship, strategic decisions, removing blockers</td>
+          <td>30 min/day check-in</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pnote">💬 "Every task in this campaign has a single owner. If two people own it, nobody owns it."</div>
+  </div>
+  <div class="slide-num">03 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 4 — THE APPLICATION SYSTEM
+================================= -->
+<section class="slide slide-dark">
+  <div class="content-wide">
+    <div class="eyebrow">Step 1 — Getting Applications</div>
+    <h2>The Application System</h2>
+    <div class="divider-left"></div>
+    <div class="two-col">
+      <div>
+        <h3 style="color: #FFC700; margin-bottom: 18px;">📋 What the Form Collects</h3>
+        <ul class="checklist">
+          <li><span class="ci">1.</span> Full name of business owner</li>
+          <li><span class="ci">2.</span> Business name</li>
+          <li><span class="ci">3.</span> Type of business (dropdown)</li>
+          <li><span class="ci">4.</span> District / location in Uganda</li>
+          <li><span class="ci">5.</span> Phone number (WhatsApp preferred)</li>
+          <li><span class="ci">6.</span> What digital solution do you need? (website / app)</li>
+          <li><span class="ci">7.</span> Describe your business in 2–3 sentences</li>
+          <li><span class="ci">8.</span> Do you currently have a website or app? (Yes/No)</li>
+          <li><span class="ci">9.</span> How did you hear about this campaign?</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color: #4dd9ce; margin-bottom: 18px;">⚙️ How It's Managed</h3>
+        <ul class="checklist">
+          <li><span class="ci-teal">→</span> Google Form auto-populates to a Google Sheet</li>
+          <li><span class="ci-teal">→</span> Queen checks new submissions twice daily (9 AM + 4 PM)</li>
+          <li><span class="ci-teal">→</span> Each applicant gets auto-acknowledgement within 2 hours</li>
+          <li><span class="ci-teal">→</span> Sheet has columns: Name / Business / Status / Assigned Dev / Notes</li>
+          <li><span class="ci-teal">→</span> Status options: Applied → Reviewing → Selected → Rejected → Waitlisted → Building → Live</li>
+          <li><span class="ci-teal">→</span> Elly reviews all submissions daily and marks top picks</li>
+          <li><span class="ci-teal">→</span> Final selection approved by Collins</li>
+        </ul>
+        <div style="margin-top: 20px; padding: 16px; background: rgba(77,217,206,0.08); border: 1px solid rgba(77,217,206,0.2); border-radius: 10px;">
+          <p style="font-size: 13px; color: #4dd9ce;"><strong>Tool:</strong> Google Forms + Google Sheets. Free. No setup cost.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">04 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 5 — OUTREACH SCRIPTS
+================================= -->
+<section class="slide slide-mid">
+  <div class="content-wide">
+    <div class="eyebrow">Step 2 — Outreach</div>
+    <h2>What to Say & How to Say It</h2>
+    <div class="divider-left"></div>
+    <div class="two-col">
+      <div>
+        <h3 style="margin-bottom: 14px;">💬 WhatsApp / Instagram DM Script</h3>
+        <div class="script-box">
+          <div class="from">Template · Cold DM</div>
+          Hi [Name] 👋 I'm Elly from Embiro Technologies. We're running a free campaign this month — we're giving 50 women-owned businesses in Uganda a <strong>free professional website or app</strong>, no strings attached.<br/><br/>
+          We think [Business Name] would be a great fit. Applications are open now but only 50 spots are available.<br/><br/>
+          Interested? Here's the link 👇<br/>
+          [Application Link]<br/><br/>
+          Feel free to ask me anything! 🙌
+        </div>
+        <p style="font-size: 13px; opacity: 0.5; margin-top: 8px;">Personalise: use their business name. Send max 10 DMs/day to avoid account flags.</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 14px;">🎤 Women's Group Pitch (60 seconds)</h3>
+        <div class="script-box">
+          <div class="from">Template · Live Group Visit</div>
+          "My name is Elly, I work with Embiro Technologies — we build websites and apps for businesses across Uganda.<br/><br/>
+          This month we're doing something special. We are giving away <strong>50 free professional websites</strong> to women-owned businesses. Completely free — no hidden costs, no catch.<br/><br/>
+          We can only take 50 businesses, so spots are limited. If you own a business and you don't have a website yet, this is for you. Applications take 5 minutes on your phone.<br/><br/>
+          Who here wants to apply? I have the link right now."
+        </div>
+        <p style="font-size: 13px; opacity: 0.5; margin-top: 8px;">Always end with an immediate action — share the link on the spot. Don't leave and hope they apply later.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">05 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 6 — DAILY ROUTINE
+================================= -->
+<section class="slide slide-dark">
+  <div class="content-wide">
+    <div class="eyebrow">Daily Execution</div>
+    <h2>Elly's Daily Campaign Routine</h2>
+    <div class="divider-left"></div>
+    <div class="flow">
+      <div class="flow-row">
+        <div class="flow-time">8:00 AM</div>
+        <div class="flow-content">
+          <h3>Morning Check-in</h3>
+          <p>Review new applications in Google Sheet. Flag top picks. Note any quality issues to discuss with Collins.</p>
+        </div>
+      </div>
+      <div class="flow-row">
+        <div class="flow-time">9:00 AM</div>
+        <div class="flow-content">
+          <h3>Social Post #1 — Launch / Story</h3>
+          <p>Post on Embiro's Instagram, Facebook, LinkedIn. Use a testimonial, a business spotlight, or campaign update. Always use #SheBuildsUG.</p>
+        </div>
+      </div>
+      <div class="flow-row">
+        <div class="flow-time">10:00–12:00</div>
+        <div class="flow-content">
+          <h3>Outreach Block</h3>
+          <p>5 personalised DMs (Instagram / WhatsApp). Engage with 3 comments on women's business pages. Follow up with any warm leads from yesterday.</p>
+        </div>
+      </div>
+      <div class="flow-row">
+        <div class="flow-time">2:00–4:00 PM</div>
+        <div class="flow-content">
+          <h3>Group Visit OR Afternoon Outreach</h3>
+          <p>On group visit days: attend SACCO / market / church group, pitch the campaign, collect applications on the spot. Non-visit days: second outreach block (5 more DMs + warm follow-ups).</p>
+        </div>
+      </div>
+      <div class="flow-row">
+        <div class="flow-time">5:00 PM</div>
+        <div class="flow-content">
+          <h3>Social Post #2 — Evening Engagement</h3>
+          <p>WhatsApp Status update, Instagram Story, or Facebook post. Show behind-the-scenes, a campaign stat update, or a business being featured.</p>
+        </div>
+      </div>
+      <div class="flow-row">
+        <div class="flow-time">6:00 PM</div>
+        <div class="flow-content">
+          <h3>End-of-Day Log</h3>
+          <p>Update the tracker: DMs sent, responses received, new applications, group visited. Takes 5 minutes. Non-negotiable — this is how we measure progress.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">06 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 7 — WEEKLY OUTREACH TARGETS
+================================= -->
+<section class="slide slide-teal">
+  <div class="content-wide">
+    <div class="eyebrow">Weekly Targets</div>
+    <h2>The Numbers We Hit Each Week</h2>
+    <div class="divider-left"></div>
+    <table style="margin-top: 8px;">
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Per Day</th>
+          <th>Per Week</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Direct DMs (WhatsApp / Instagram)</td>
+          <td class="accent">5</td>
+          <td class="accent">25+</td>
+          <td><span class="role role-elly">Elly</span></td>
+        </tr>
+        <tr>
+          <td>Social media posts (all platforms)</td>
+          <td class="accent">2</td>
+          <td class="accent">10+</td>
+          <td><span class="role role-elly">Elly</span></td>
+        </tr>
+        <tr>
+          <td>Women's group visits (in person)</td>
+          <td>—</td>
+          <td class="accent">2–3</td>
+          <td><span class="role role-elly">Elly</span></td>
+        </tr>
+        <tr>
+          <td>Application acknowledgements sent</td>
+          <td>All within 2h</td>
+          <td class="accent">All</td>
+          <td><span class="role role-queen">Queen</span></td>
+        </tr>
+        <tr>
+          <td>Tracker updated</td>
+          <td>End of day</td>
+          <td class="accent">Daily</td>
+          <td><span class="role role-queen">Queen</span></td>
+        </tr>
+        <tr>
+          <td>New applications reviewed + flagged</td>
+          <td>Morning</td>
+          <td class="accent">Daily</td>
+          <td><span class="role role-elly">Elly</span></td>
+        </tr>
+        <tr>
+          <td>Weekly progress report to Collins</td>
+          <td>—</td>
+          <td class="accent">Every Monday</td>
+          <td><span class="role role-elly">Elly</span></td>
+        </tr>
+        <tr>
+          <td>Target new signups per week</td>
+          <td>—</td>
+          <td class="accent">10–15</td>
+          <td>Whole Team</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pnote">💬 "Track these numbers every single week. If DMs are going up but signups are flat, the script needs changing. If group visits are giving more signups than DMs, do more visits."</div>
+  </div>
+  <div class="slide-num">07 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 8 — NEXTMEDIA EXECUTION
+================================= -->
+<section class="slide slide-dark">
+  <div class="content-wide">
+    <div class="eyebrow">Channel 1 — Confirmed Partner</div>
+    <h2>Working with NextMedia</h2>
+    <div class="divider-left"></div>
+    <div class="three-col">
+      <div class="card-yellow">
+        <span class="card-icon">📅</span>
+        <h3 style="color: #FFC700;">What We Provide to Them</h3>
+        <ul class="checklist" style="margin-top: 8px;">
+          <li><span class="ci">→</span> Campaign one-pager (PDF)</li>
+          <li><span class="ci">→</span> Application link (short URL)</li>
+          <li><span class="ci">→</span> Key message: "50 free websites for women-owned businesses"</li>
+          <li><span class="ci">→</span> Campaign hashtag: #SheBuildsUG</li>
+          <li><span class="ci">→</span> Embiro logo + brand kit</li>
+          <li><span class="ci">→</span> Collins's contact for interviews</li>
+        </ul>
+      </div>
+      <div class="card-teal">
+        <span class="card-icon">📡</span>
+        <h3 style="color: #4dd9ce;">What We Expect from Them</h3>
+        <ul class="checklist" style="margin-top: 8px;">
+          <li><span class="ci-teal">→</span> On-air campaign mention (radio / TV)</li>
+          <li><span class="ci-teal">→</span> Social media posts on their channels</li>
+          <li><span class="ci-teal">→</span> Application link shared with their audience</li>
+          <li><span class="ci-teal">→</span> Possible feature / interview with Collins</li>
+          <li><span class="ci-teal">→</span> Second push in Week 3</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="card-icon">🗓️</span>
+        <h3>Timeline with NextMedia</h3>
+        <ul class="checklist" style="margin-top: 8px;">
+          <li><span class="ci">W1</span> First on-air push → campaign opens</li>
+          <li><span class="ci">W2</span> Follow-up social posts from their pages</li>
+          <li><span class="ci">W3</span> Second on-air push → application deadline urgency</li>
+          <li><span class="ci">W4</span> Announce the 50 winners jointly</li>
+        </ul>
+        <p style="margin-top: 16px; font-size: 13px; opacity: 0.5;">Assign Elly as the single point of contact for all NextMedia coordination.</p>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <p><span>Action before launch:</span> Send NextMedia the campaign brief, application link, and all brand assets at least <span>3 days before go-live</span>. Confirm the exact air date with them in writing.</p>
+    </div>
+  </div>
+  <div class="slide-num">08 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 9 — GROUP VISITS PLAN
+================================= -->
+<section class="slide slide-mid">
+  <div class="content-wide">
+    <div class="eyebrow">Channel 2 — High-Conversion</div>
+    <h2>Women's Group Visit Plan</h2>
+    <div class="divider-left"></div>
+    <div class="two-col">
+      <div>
+        <h3 style="color: #FFC700; margin-bottom: 18px;">🎯 Where to Visit</h3>
+        <ul class="checklist">
+          <li><span class="ci">★</span> <strong>SACCOs</strong> — women's savings groups (high trust, active businesses)</li>
+          <li><span class="ci">★</span> <strong>Market associations</strong> — Owino, Nakasero, local markets</li>
+          <li><span class="ci">★</span> <strong>Church women's groups</strong> — large, trusted, recurring gatherings</li>
+          <li><span class="ci">★</span> <strong>University clubs</strong> — Makerere, MUBS innovation hubs</li>
+          <li><span class="ci">★</span> <strong>NGO networks</strong> — UWEAL, Pearl Women, Women of Uganda Network</li>
+          <li><span class="ci">★</span> <strong>Business associations</strong> — KCCA-registered women's trade groups</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color: #4dd9ce; margin-bottom: 18px;">📦 What to Bring to Every Visit</h3>
+        <ul class="checklist">
+          <li><span class="ci-teal">✓</span> Printed flyer (even 10 copies helps)</li>
+          <li><span class="ci-teal">✓</span> Phone with application form open and ready</li>
+          <li><span class="ci-teal">✓</span> A short slide on your phone to show (the campaign deck)</li>
+          <li><span class="ci-teal">✓</span> Embiro business cards</li>
+          <li><span class="ci-teal">✓</span> A working example: "This is a website we built in 5 days"</li>
+          <li><span class="ci-teal">✓</span> WhatsApp short link ready to share</li>
+        </ul>
+        <div style="margin-top: 20px; padding: 16px; background: rgba(255,199,0,0.07); border: 1px solid rgba(255,199,0,0.2); border-radius: 10px;">
+          <p style="font-size: 13px;"><strong>Pro tip:</strong> Ask the group leader to endorse the campaign first, then pitch. An endorsement from a trusted leader doubles conversion.</p>
+        </div>
+      </div>
+    </div>
+    <div class="pnote">💬 "Target: 10+ group visits across the 4 weeks. Two visits per week minimum from Week 2 onwards."</div>
+  </div>
+  <div class="slide-num">09 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 10 — SOCIAL MEDIA CALENDAR
+================================= -->
+<section class="slide slide-yellow">
+  <div class="content-wide">
+    <div class="eyebrow" style="color: #003F3A;">Channel 3 — Daily Presence</div>
+    <h2 style="color: #000;">Social Media Content Calendar</h2>
+    <div class="divider-left" style="background: #003F3A;"></div>
+    <table>
+      <thead>
+        <tr style="background: rgba(0,63,58,0.1);">
+          <th style="color: #003F3A;">Day</th>
+          <th style="color: #003F3A;">Morning Post</th>
+          <th style="color: #003F3A;">Evening Post / Story</th>
+          <th style="color: #003F3A;">Platform Focus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Monday</strong></td><td>Campaign launch / reminder post</td><td>Meet a selected business spotlight</td><td>Facebook + Instagram</td></tr>
+        <tr><td><strong>Tuesday</strong></td><td>"Why having a website matters" — tips post</td><td>Behind-the-scenes: dev building a site</td><td>LinkedIn + Instagram</td></tr>
+        <tr><td><strong>Wednesday</strong></td><td>Application reminder — "Spots filling fast!"</td><td>WhatsApp Status update + broadcast</td><td>WhatsApp + Facebook</td></tr>
+        <tr><td><strong>Thursday</strong></td><td>Testimonial / business owner story</td><td>Countdown post — days remaining</td><td>Instagram + TikTok</td></tr>
+        <tr><td><strong>Friday</strong></td><td>Week recap: "X businesses applied this week"</td><td>Call-to-action: "Don't miss out, apply now"</td><td>All platforms</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 24px;">📸</div>
+        <div style="font-weight: 700; font-size: 14px; color: #000; margin-top: 8px;">Always use</div>
+        <div style="font-size: 13px; color: #003F3A; font-weight: 600; margin-top: 4px;">#SheBuildsUG<br/>#EmbiroEmpowers</div>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 24px;">🎨</div>
+        <div style="font-weight: 700; font-size: 14px; color: #000; margin-top: 8px;">Design tool</div>
+        <div style="font-size: 13px; color: #003F3A; font-weight: 600; margin-top: 4px;">Canva (free)<br/>Embiro brand colors</div>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 24px;">⏰</div>
+        <div style="font-weight: 700; font-size: 14px; color: #000; margin-top: 8px;">Best times to post</div>
+        <div style="font-size: 13px; color: #003F3A; font-weight: 600; margin-top: 4px;">7–9 AM &amp; 7–9 PM<br/>Uganda time</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">10 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 11 — SELECTION PROCESS
+================================= -->
+<section class="slide slide-dark">
+  <div class="content-wide">
+    <div class="eyebrow">Step 3 — Picking the 50</div>
+    <h2>The Selection Process</h2>
+    <div class="divider-left"></div>
+    <div class="two-col">
+      <div>
+        <h3 style="color: #FFC700; margin-bottom: 18px;">How We Review Applications</h3>
+        <div class="day-block">
+          <div class="day-header"><div class="day-pill">Step 1</div><div class="day-title">Queen logs all new submissions daily</div></div>
+        </div>
+        <div class="day-block">
+          <div class="day-header"><div class="day-pill">Step 2</div><div class="day-title">Elly reviews and scores each application</div></div>
+          <p style="font-size: 14px; opacity: 0.65; padding-left: 16px;">Score 1–5 on: business clarity, need level, diversity of industry, location (upcountry gets priority)</p>
+        </div>
+        <div class="day-block">
+          <div class="day-header"><div class="day-pill">Step 3</div><div class="day-title">Weekly shortlist sent to Collins</div></div>
+          <p style="font-size: 14px; opacity: 0.65; padding-left: 16px;">Top 15 per week. Collins approves or adjusts. Running total of selected businesses updated.</p>
+        </div>
+        <div class="day-block">
+          <div class="day-header"><div class="day-pill">Step 4</div><div class="day-title">Selected businesses notified within 48h</div></div>
+          <p style="font-size: 14px; opacity: 0.65; padding-left: 16px;">Queen sends personalised WhatsApp message with next steps and onboarding link.</p>
+        </div>
+        <div class="day-block">
+          <div class="day-header"><div class="day-pill">Step 5</div><div class="day-title">Non-selected go to waitlist with 20% offer</div></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="color: #4dd9ce; margin-bottom: 18px;">Selection Notification (Template)</h3>
+        <div class="script-box">
+          <div class="from" style="color: #4dd9ce;">Template · Selection Message</div>
+          Congratulations [Name]! 🎉<br/><br/>
+          You've been selected for the <strong>She Builds Uganda campaign</strong> by Embiro Technologies!<br/><br/>
+          You're one of 50 women-owned businesses in Uganda getting a <strong>free professional website</strong> built for you this month.<br/><br/>
+          Next step: Your developer will call you within 48 hours to kick off your onboarding. Please have the following ready:<br/>
+          - Your business logo (or we'll create a basic one)<br/>
+          - 3–5 sentences about your business<br/>
+          - At least 3 photos of your products/services<br/><br/>
+          Welcome to the #SheBuildsUG family! 🚀
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">11 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 12 — DELIVERY PROCESS
+================================= -->
+<section class="slide slide-teal">
+  <div class="content-wide">
+    <div class="eyebrow">Step 4 — Building & Delivering</div>
+    <h2>How We Build and Deliver</h2>
+    <div class="divider-left"></div>
+    <div class="three-col">
+      <div class="card">
+        <span class="card-icon">📞</span>
+        <h3>Day 1: Onboarding Call</h3>
+        <p>Developer calls the client. 30 minutes. Confirms: business name, colours, content, pages needed. Client gets 5 days to send all content.</p>
+        <br/>
+        <div class="tag">Owner: Assigned Dev</div>
+      </div>
+      <div class="card">
+        <span class="card-icon">⚙️</span>
+        <h3>Days 2–7: Build</h3>
+        <p>Developer builds using standard Embiro template. Fahad reviews at 50% and 100%. Client gets 2 rounds of minor revisions only.</p>
+        <br/>
+        <div class="tag">Owner: Dev + Fahad</div>
+      </div>
+      <div class="card">
+        <span class="card-icon">🚀</span>
+        <h3>Day 8: Launch</h3>
+        <p>Site goes live. Client receives login details, how-to guide, and 30-day support number. Embiro posts a launch celebration on social media — free PR for the client.</p>
+        <br/>
+        <div class="tag">Owner: Fahad + Elly</div>
+      </div>
+    </div>
+    <div class="two-col" style="margin-top: 28px;">
+      <div class="card-yellow">
+        <h3 style="color: #FFC700; margin-bottom: 14px;">⚠️ Rules That Protect the Team</h3>
+        <ul class="checklist">
+          <li><span class="ci">→</span> No build starts without all content received</li>
+          <li><span class="ci">→</span> Max 5 projects per developer in parallel</li>
+          <li><span class="ci">→</span> Only 2 revision rounds — scope creep is out</li>
+          <li><span class="ci">→</span> Client misses 5-day content deadline → moves to next batch</li>
+          <li><span class="ci">→</span> All sites on shared hosting account (Embiro manages)</li>
+        </ul>
+      </div>
+      <div class="card-teal">
+        <h3 style="color: #4dd9ce; margin-bottom: 14px;">📊 Project Tracking Board</h3>
+        <p style="margin-bottom: 12px;">Use a shared Google Sheet or Trello board with columns:</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <span class="tag">📋 Onboarding</span>
+          <span class="tag">⏳ Waiting for Content</span>
+          <span class="tag">⚙️ Building</span>
+          <span class="tag">👀 In Review</span>
+          <span class="tag">✅ Live</span>
+          <span class="tag">❌ Stalled</span>
+        </div>
+        <p style="font-size: 13px; margin-top: 12px;">Fahad updates this daily. Collins can see it at any time.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">12 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 13 — RISK & CONTINGENCY
+================================= -->
+<section class="slide slide-dark">
+  <div class="content-wide">
+    <div class="eyebrow">Risk Management</div>
+    <h2>What Could Go Wrong & What We Do</h2>
+    <div class="divider-left"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Risk</th>
+          <th>Likelihood</th>
+          <th>What We Do</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Too few applications (less than 50)</strong></td>
+          <td><span class="tag-y">Medium</span></td>
+          <td>Activate secondary networks faster. Ask NextMedia for an extra push. Add a WhatsApp broadcast to all Embiro contacts.</td>
+        </tr>
+        <tr>
+          <td><strong>Too many low-quality applications</strong></td>
+          <td><span class="tag-y">High</span></td>
+          <td>Tighten screening criteria. Prioritise upcountry, active businesses, and group nominations over random signups.</td>
+        </tr>
+        <tr>
+          <td><strong>Clients don't send content in time</strong></td>
+          <td><span class="tag-y">High</span></td>
+          <td>Strict 5-day rule. If missed, they move to waitlist and next applicant is pulled. No exceptions.</td>
+        </tr>
+        <tr>
+          <td><strong>Developer capacity overload</strong></td>
+          <td><span class="tag-y">Medium</span></td>
+          <td>Cap at 5 active projects per dev. Stagger selection announcements. Only select 15/week, not all 50 at once.</td>
+        </tr>
+        <tr>
+          <td><strong>NextMedia doesn't push hard enough</strong></td>
+          <td><span class="tag-y">Low</span></td>
+          <td>Double down on group visits and organic social. This is why we run 3 channels simultaneously.</td>
+        </tr>
+        <tr>
+          <td><strong>Team burns out by Week 3</strong></td>
+          <td><span class="tag-y">Medium</span></td>
+          <td>Daily routine is designed to be 2–3 hours max. Elly owns outreach. Queen owns admin. Fahad owns builds. Don't cross streams.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="slide-num">13 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 14 — 90-DAY REVENUE CONVERSION
+================================= -->
+<section class="slide slide-white">
+  <div class="content-wide">
+    <div class="eyebrow" style="color: #007870;">The Business Case</div>
+    <h2 style="color: #000;">How This Pays Off in 90 Days</h2>
+    <div class="divider-left" style="background: #007870;"></div>
+    <p style="color: #333; margin-bottom: 32px;">The free campaign is <strong>not charity</strong> — it's a deliberate pipeline strategy. Here's how it converts.</p>
+    <div class="three-col">
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 40px; font-weight: 900; color: #007870;">50</div>
+        <div style="font-size: 13px; color: #333; margin-top: 6px; font-weight: 600;">Selected businesses</div>
+        <div style="font-size: 12px; color: #888; margin-top: 4px;">All get free site/app + great experience</div>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 40px; font-weight: 900; color: #007870;">150+</div>
+        <div style="font-size: 13px; color: #333; margin-top: 6px; font-weight: 600;">Waitlist leads</div>
+        <div style="font-size: 13px; color: #888; margin-top: 4px;">Get 20% discount offer → warm pipeline</div>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 40px; font-weight: 900; color: #007870;">10+</div>
+        <div style="font-size: 13px; color: #333; margin-top: 6px; font-weight: 600;">Paying clients (90 days)</div>
+        <div style="font-size: 13px; color: #888; margin-top: 4px;">Upsell: maintenance, SEO, upgrades</div>
+      </div>
+    </div>
+    <div style="margin-top: 32px; background: #f0faf8; border: 1px solid #007870; border-radius: 12px; padding: 28px;">
+      <h3 style="color: #003F3A; margin-bottom: 16px;">💰 Upsell Path (30–90 days after launch)</h3>
+      <div class="two-col">
+        <ul class="checklist">
+          <li><span class="ci">→</span> Monthly website maintenance — 150,000 UGX/mo</li>
+          <li><span class="ci">→</span> SEO & Google ranking package — 500,000+ UGX</li>
+          <li><span class="ci">→</span> Additional pages or features — 200,000+ UGX</li>
+        </ul>
+        <ul class="checklist">
+          <li><span class="ci">→</span> E-commerce upgrade (add online shop) — 1.8M+ UGX</li>
+          <li><span class="ci">→</span> Social media management — 300,000/mo</li>
+          <li><span class="ci">→</span> Referral: each client refers 1 new paying client</li>
+        </ul>
+      </div>
+      <p style="margin-top: 16px; font-size: 14px; color: #007870; font-weight: 600;">At 20% conversion: 10 paying clients × avg. 500K UGX = 5M UGX in new recurring revenue. This is conservative.</p>
+    </div>
+  </div>
+  <div class="slide-num">14 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 15 — TRACKING DASHBOARD
+================================= -->
+<section class="slide slide-dark-alt" style="background: #111827;">
+  <div class="content-wide">
+    <div class="eyebrow">Weekly Reporting</div>
+    <h2>How We Track Progress</h2>
+    <div class="divider-left"></div>
+    <p style="margin-bottom: 32px;">Every Monday, Elly sends Collins a <span class="accent">one-page campaign update</span> covering these numbers:</p>
+    <div class="stat-grid">
+      <div class="stat-box">
+        <div class="stat-big">?</div>
+        <div class="stat-lbl">Total applications received</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-big">?</div>
+        <div class="stat-lbl">Selected this week</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-big">?</div>
+        <div class="stat-lbl">Projects currently building</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-big">?</div>
+        <div class="stat-lbl">Sites launched this week</div>
+      </div>
+    </div>
+    <div class="stat-grid" style="margin-top: 20px;">
+      <div class="stat-box">
+        <div class="stat-big">?</div>
+        <div class="stat-lbl">DMs sent this week</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-big">?</div>
+        <div class="stat-lbl">Group visits completed</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-big">?</div>
+        <div class="stat-lbl">Social reach (likes + shares)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-big">?</div>
+        <div class="stat-lbl">Waitlist size</div>
+      </div>
+    </div>
+    <div class="highlight-box" style="margin-top: 32px;">
+      <p>These numbers tell the story. <span>If a number is red, we fix it.</span> If it's green, we double down on what's working. No guessing.</p>
+    </div>
+  </div>
+  <div class="slide-num">15 / 16</div>
+</section>
+
+<!-- ================================
+     SLIDE 16 — CLOSE
+================================= -->
+<section class="slide slide-cover">
+  <div class="content-centered">
+    <div class="eyebrow">Let's Go</div>
+    <p class="big-quote" style="font-size: clamp(26px, 4vw, 52px);">
+      We have the plan.<br/>
+      We have the partner.<br/>
+      We have the team.<br/>
+      <span>We just need to execute.</span>
+    </p>
+    <div class="divider" style="margin-top: 36px;"></div>
+    <div class="cover-meta" style="border-top: 1px solid rgba(255,255,255,0.12);">
+      <div class="cover-meta-item"><div class="big">Day 1</div><div class="lbl">Pre-launch checklist complete</div></div>
+      <div class="cover-meta-item"><div class="big">Week 1</div><div class="lbl">NextMedia push goes live</div></div>
+      <div class="cover-meta-item"><div class="big">Week 4</div><div class="lbl">50 businesses selected</div></div>
+      <div class="cover-meta-item"><div class="big">Day 90</div><div class="lbl">10+ paying clients</div></div>
+    </div>
+    <div style="margin-top: 48px;">
+      <div style="font-size: 28px; font-weight: 800; color: #FFC700;">#SheBuildsUG 🚀</div>
+      <p style="margin-top: 12px; opacity: 0.4; font-size: 13px;">Embiro Technologies · embiro.com · ops@embiro.com</p>
+    </div>
+  </div>
+  <div class="slide-num">16 / 16</div>
+</section>
+
+</body>
+</html>
